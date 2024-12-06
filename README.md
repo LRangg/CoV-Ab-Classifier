@@ -20,6 +20,8 @@ Source: A curated dataset of antibody sequences was extracted from CoVAbDab(http
 Preprocessing:
 All non-covid antibodies were removed from the database. The rest were labeled as either WT-specific(0) or cross-reactive(1).
 
+For each antibody, the heavy and light chain sequences were concatenated with a special token into one single sequence. For example: [HEAVY] <heavy_chain_sequence> [LIGHT] <light_chain_sequence>
+
 Sequences were tokenized using ProtBERT’s tokenizer.
 
 Data was randomly split into training, validation, and test sets with a 7:2:1 ratio while maintaining a 1:1 ratio between 0s and 1s within each set to ensure diverse representation and reduce label leakage.
