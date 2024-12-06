@@ -1,1 +1,40 @@
 # CoV-Ab-Classifier
+# Antibody Sequence Classification Using ProtBERT
+
+## 1. Overview
+The study focuses on training a model to classify antibody sequences for their specificity. Specifically, it aims to distinguish whether an antibody is specific to the wild-type (WT) SARS-CoV-2 virus only or is cross-reactive to other variants. ProtBERT, a pre-trained transformer-based model tailored for protein sequences, is used as the foundation for tokenizing sequences. A convolutional neural network (CNN)-based model is used for the classification task and trained on tokenized antibody sequences.
+
+## 2. Specific Aims
+	•	Aim 1: Develop a classification model capable of identifying whether a given antibody sequence is specific to the WT SARS-CoV-2 or is cross-reactive to multiple variants.
+	•	Aim 2: Evaluate the performance of the fine-tuned ProtBERT model on a curated dataset of antibody sequences.
+
+## 3. Background
+The SARS-CoV-2 pandemic has driven the need for effective diagnostic and therapeutic antibodies. Understanding cross-reactivity is critical in vaccine design and therapeutic development, as cross-reactive antibodies provide broader protection against emerging variants. Recent advances in computational biology, particularly the use of transformer models like ProtBERT, have enabled effective representation learning for protein sequences, making it possible to classify and analyze sequence specificity efficiently.
+
+## 4. Methodology
+
+### 4.1 Dataset Preparation
+	•	Source: A curated dataset of antibody sequences was extracted from CoVAbDab(https://opig.stats.ox.ac.uk/webapps/covabdab/), labeled as WT SARS-CoV-2 -specific or cross-reactive based on published data.
+	•	Preprocessing:
+  •	All non-covid antibodies were removed from the database. The rest were labeled as either WT-specific(0) or cross-reactive(1).
+	•	Sequences were tokenized using ProtBERT’s tokenizer.
+	•	Data was randomly split into training, validation, and test sets with a 7:2:1 ratio while maintaining a 1:1 ratio between 0s and 1s within each set to ensure diverse representation and reduce label leakage.
+
+### 4.2 Model
+	•	Base Model: A customized CNN.
+	• Model Architecture:
+	•	Embedding Layer: Converts tokenized sequences into dense vectors.
+	•	Convolutional Layers: Apply multiple convolutional filters of varying sizes (3, 4, 5) to capture sequence motifs.
+	•	Max Pooling: Extracts the most salient features from each filter.
+	•	Dropout: Reduces overfitting with a dropout rate of 0.7.
+	•	Fully Connected Layer: Combines all features for binary classification.
+
+### 4.3 Training
+	•	Loss Function: Binary cross-entropy.
+	•	Optimizer: Adam with a learning rate scheduler.
+	•	Metrics: Accuracy, F1-score, precision, and recall.
+	•	Regularization: Dropout and early stopping to prevent overfitting.
+
+### 4.4 Evaluation
+	•	Evaluation was performed using the held-out test set.
+ 
