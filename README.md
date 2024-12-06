@@ -57,22 +57,40 @@ Regularization: Dropout and early stopping to prevent overfitting.
 ### 4.4 Evaluation
 Evaluation was performed using the held-out test set.
 
+### Results
+Validation Accuracy: 0.51
+Test Accuracy: 0.51
+
 
 ## 5. Discussion
 
-Strengths:
+### Strengths:
 
 The CNN captured sequence-level features effectively. The use of CNN could benefit in data engineering (dataset testing) because of the faster speed compared to finutuning a protein language model.
 
 The use of multiple filter sizes provided flexibility in feature detection.
 
-Limitations:
+### Limitations:
 
-Covid antibodies are very similar sequence-wise. So, the current dataset size and diversity may constrain feature detection and generalizability.
+Poor Feature Representation:
+
+The CNN might struggle to learn meaningful patterns distinguishing Class 1 due to:
+
+	1.	Lack of discriminative features in the input data.
+ 
+	2.	Overlap in feature space between Class 0 and Class 1.
 
 Binary classification may oversimplify the specificity-cross-reactivity spectrum.
 
-Future Directions:
+### Future Directions:
+
+Analyze the embeddings for both classes (e.g., using PCA or t-SNE) to check if their feature representations are separable.
+
+Input Preprocessing: Ensure that the tokenized sequences preserve meaningful differences between classes.
+
+Feature Engineering: Incorporate additional features that could help distinguish Class 1 (e.g., sequence length, specific amino acid patterns).
+
+Model Complexity: If the CNN is too simple, it may not capture subtle patterns in the data. Add more filters, layers, or increase the embedding dimension.
 
 Expand dataset to include diverse antibody sequences across multiple variants.
 
