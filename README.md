@@ -58,8 +58,12 @@ Regularization: Dropout and early stopping to prevent overfitting.
 Evaluation was performed using the held-out test set.
 
 ### Results
-Validation Accuracy: 0.51
-Test Accuracy: 0.51
+Overall Validation Accuracy: 0.51
+
+Overall Test Accuracy: 0.51
+
+### Statistics
+![results](fig/stats.png "Results")
 
 
 ## 5. Discussion
