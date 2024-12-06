@@ -7,7 +7,7 @@ The study focuses on training a model to classify antibody sequences for their s
 ## 2. Specific Aims
 Aim 1: Develop a classification model capable of identifying whether a given antibody sequence is specific to the WT SARS-CoV-2 or is cross-reactive to multiple variants.
 
-Aim 2: Evaluate the performance of the fine-tuned ProtBERT model on a curated dataset of antibody sequences.
+Aim 2: Evaluate the performance of the CNN model on a curated dataset of antibody sequences.
 
 ## 3. Background
 The SARS-CoV-2 pandemic has driven the need for effective diagnostic and therapeutic antibodies. Understanding cross-reactivity is critical in vaccine design and therapeutic development, as cross-reactive antibodies provide broader protection against emerging variants. Recent advances in computational biology, particularly the use of transformer models like ProtBERT, have enabled effective representation learning for protein sequences, making it possible to classify and analyze sequence specificity efficiently.
