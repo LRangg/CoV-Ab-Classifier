@@ -24,6 +24,9 @@ Sequences were tokenized using ProtBERT’s tokenizer.
 
 Data was randomly split into training, validation, and test sets with a 7:2:1 ratio while maintaining a 1:1 ratio between 0s and 1s within each set to ensure diverse representation and reduce label leakage.
 
+### Dataset Split Result
+![dataset split](fig/dataset_split.png "Dataset Split")
+
 ### 4.2 Model
 Base Model: A customized CNN.
 
@@ -39,6 +42,9 @@ Dropout: Reduces overfitting with a dropout rate of 0.7.
 
 Fully Connected Layer: Combines all features for binary classification.
 
+### CNN Overview
+![cnn overview](fig/cnn_overview.png "CNN Overview")
+
 ### 4.3 Training
 Loss Function: Binary cross-entropy.
 
@@ -50,4 +56,6 @@ Regularization: Dropout and early stopping to prevent overfitting.
 
 ### 4.4 Evaluation
 Evaluation was performed using the held-out test set.
+
+
  
